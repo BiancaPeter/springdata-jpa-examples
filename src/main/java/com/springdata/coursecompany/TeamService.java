@@ -14,4 +14,8 @@ public class TeamService {
         this.userRepository = userRepository;
         this.moduleRepository = moduleRepository;
     }
+
+    public Team saveTeam(Team team){
+        return teamRepository.save(team);
+    }
 }

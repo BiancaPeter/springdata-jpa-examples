@@ -10,4 +10,8 @@ public class SubjectService {
     public SubjectService(@Autowired SubjectRepository subjectRepository) {
         this.subjectRepository = subjectRepository;
     }
+
+    public Subject saveSubject(Subject subject){
+        return subjectRepository.save(subject);
+    }
 }

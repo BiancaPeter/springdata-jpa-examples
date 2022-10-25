@@ -16,8 +16,9 @@ public class Subject {
     @JoinColumn(name = "session_id")
     private Session session;
 
-    public Subject(String name) {
+    public Subject(String name, Session session) {
         this.name = name;
+        this.session = session;
     }
 
     public Subject(){}

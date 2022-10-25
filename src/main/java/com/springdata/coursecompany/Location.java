@@ -23,12 +23,6 @@ public class Location {
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
     private Set<Session> sessions;
 
-    public Location(String name, String street, int number, Set<Session> sessions) {
-        this.name = name;
-        this.street = street;
-        this.number = number;
-        this.sessions = sessions;
-    }
 
     public Location(String name, String street, int number) {
         this.name = name;

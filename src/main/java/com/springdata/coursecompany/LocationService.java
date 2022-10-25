@@ -14,4 +14,9 @@ public class LocationService {
         this.sessionRepository = sessionRepository;
         this.locationRepository = locationRepository;
     }
+
+    public Location saveLocation(Location location){
+        return locationRepository.save(location);
+    }
+
 }

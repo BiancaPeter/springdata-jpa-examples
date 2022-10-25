@@ -14,4 +14,8 @@ public class SessionService {
         this.sessionRepository = sessionRepository;
         this.presenceRepository = presenceRepository;
     }
+
+    public Session saveSession (Session session){
+        return sessionRepository.save(session);
+    }
 }

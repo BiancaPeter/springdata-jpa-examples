@@ -14,4 +14,9 @@ public class ModuleService {
         this.moduleRepository = moduleRepository;
         this.sessionRepository = sessionRepository;
     }
+
+    public Module saveModule(Module module){
+        return moduleRepository.save(module);
+    }
+
 }

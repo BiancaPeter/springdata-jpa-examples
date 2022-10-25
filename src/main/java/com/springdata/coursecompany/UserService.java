@@ -14,4 +14,8 @@ public class UserService {
         this.subjectRepository = subjectRepository;
         this.presenceRepository = presenceRepository;
     }
+
+    public User saveUser(User user){
+        return userRepository.save(user);
+    }
 }
