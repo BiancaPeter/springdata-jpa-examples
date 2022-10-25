@@ -1,7 +1,7 @@
 package com.springdata.coursecompany;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -34,11 +34,102 @@ public class User {
     private Team team;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    List<Session> sessions;
+    private Set<Session> sessions;
 
 
     @OneToMany(mappedBy = "user")
     private Set<Presence> presences;
 
+    public User(String username, String password, String firstname, String lastname, String emailAddress, Role role) {
+        this.username = username;
+        this.password = password;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.emailAddress = emailAddress;
+        this.role = role;
+    }
+
     public User(){}
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    public Set<Session> getSessions() {
+        if (this.sessions == null) {
+            this.sessions = new HashSet<>();
+        }
+        return sessions;
+    }
+
+    public void setSessions(Set<Session> sessions) {
+        this.sessions = sessions;
+    }
+
+    public Set<Presence> getPresences() {
+        if (this.presences == null) {
+            this.presences = new HashSet<>();
+        }
+        return presences;
+    }
+
+    public void setPresences(Set<Presence> presences) {
+        this.presences = presences;
+    }
 }
