@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TweetService {
-    private TweetRepository tweetRepository;
+     private TweetRepository tweetRepository;
     private CommentRepository commentRepository;
 
     public TweetService(@Autowired TweetRepository tweetRepository, @Autowired CommentRepository commentRepository) {

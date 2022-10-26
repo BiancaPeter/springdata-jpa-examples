@@ -27,11 +27,10 @@ public class Module {
     @OneToMany(mappedBy = "module", cascade = CascadeType.ALL)
     private Set<Session> sessions;
 
-    public Module(String name, LocalDate startDate, LocalDate endDate, Team team) {
+    public Module(String name, LocalDate startDate, LocalDate endDate) {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.team = team;
     }
 
     public Module() {
@@ -82,5 +81,17 @@ public class Module {
 
     public void setSessions(Set<Session> sessions) {
         this.sessions = sessions;
+    }
+
+    @Override
+    public String toString() {
+        return "Module{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", team=" + team +
+                ", sessions=" + sessions +
+                '}';
     }
 }

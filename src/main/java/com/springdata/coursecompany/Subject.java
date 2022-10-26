@@ -12,16 +12,16 @@ public class Subject {
     @Column
     private String name;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "session_id")
     private Session session;
 
-    public Subject(String name, Session session) {
+    public Subject(String name) {
         this.name = name;
-        this.session = session;
     }
 
-    public Subject(){}
+    public Subject() {
+    }
 
     public Long getId() {
         return id;
@@ -41,5 +41,14 @@ public class Subject {
 
     public void setSession(Session session) {
         this.session = session;
+    }
+
+    @Override
+    public String toString() {
+        return "Subject{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", session=" + session +
+                '}';
     }
 }

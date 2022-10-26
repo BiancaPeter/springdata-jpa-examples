@@ -71,4 +71,15 @@ public class Location {
     public void setSessions(Set<Session> sessions) {
         this.sessions = sessions;
     }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", street='" + street + '\'' +
+                ", number=" + number +
+                ", sessions=" + sessions +
+                '}';
+    }
 }

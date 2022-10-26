@@ -25,8 +25,8 @@ public class User {
 
     @Column
     private String emailAddress;
-
-    @Column
+    @Enumerated(EnumType.STRING)
+    @Column(name="user_role")
     private Role role;
 
     @ManyToOne
@@ -38,7 +38,7 @@ public class User {
 
 
     @OneToMany(mappedBy = "user")
-    private Set<Presence> presences;
+    private Set<Attendance> attendances;
 
     public User(String username, String password, String firstname, String lastname, String emailAddress, Role role) {
         this.username = username;
@@ -122,14 +122,30 @@ public class User {
         this.sessions = sessions;
     }
 
-    public Set<Presence> getPresences() {
-        if (this.presences == null) {
-            this.presences = new HashSet<>();
+    public Set<Attendance> getAttendances() {
+        if (this.attendances == null) {
+            this.attendances = new HashSet<>();
         }
-        return presences;
+        return attendances;
     }
 
-    public void setPresences(Set<Presence> presences) {
-        this.presences = presences;
+    public void setAttendances(Set<Attendance> attendances) {
+        this.attendances = attendances;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                ", role=" + role +
+                ", team=" + team +
+                ", sessions=" + sessions +
+                ", attendances=" + attendances +
+                '}';
     }
 }

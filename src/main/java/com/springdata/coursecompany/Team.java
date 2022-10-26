@@ -60,4 +60,14 @@ public class Team {
     public void setUsers(Set<User> users) {
         this.users = users;
     }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", modules=" + modules +
+                ", users=" + users +
+                '}';
+    }
 }
