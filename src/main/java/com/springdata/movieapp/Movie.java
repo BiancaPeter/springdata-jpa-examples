@@ -1,7 +1,9 @@
 package com.springdata.movieapp;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,17 +20,16 @@ public class Movie {
     @JoinColumn(name = "franchise_id")
     Franchise franchise;
 
-    @ManyToMany
+    @ManyToMany( cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinTable(
             name = "movie_character",
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "character_id")
     )
-    private Set<Character> characters;
+    private List<Character> characters;
 
-    public Movie(String name, Set<Character> characters) {
+    public Movie(String name) {
         this.name = name;
-        this.characters = characters;
     }
 
     public Movie() {
@@ -54,14 +55,14 @@ public class Movie {
         this.franchise = franchise;
     }
 
-    public Set<Character> getCharacters() {
+    public List<Character> getCharacters() {
         if (this.characters == null) {
-            this.characters = new HashSet<>();
+            this.characters = new ArrayList<>();
         }
         return characters;
     }
 
-    public void setCharacters(Set<Character> characters) {
+    public void setCharacters(List<Character> characters) {
         this.characters = characters;
     }
 }

@@ -1,8 +1,8 @@
 package com.springdata.movieapp;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Franchise {
@@ -15,11 +15,10 @@ public class Franchise {
     private String name;
 
     @OneToMany(mappedBy = "franchise", cascade = CascadeType.ALL)
-    Set<Movie> movies;
+    List<Movie> movies;
 
-    public Franchise(String name, Set<Movie> movies) {
+    public Franchise(String name) {
         this.name = name;
-        this.movies = movies;
     }
 
     public Franchise(){}
@@ -36,14 +35,14 @@ public class Franchise {
         this.name = name;
     }
 
-    public Set<Movie> getMovies() {
+    public List<Movie> getMovies() {
         if (this.movies == null) {
-            this.movies = new HashSet<>();
+            this.movies = new ArrayList<>();
         }
         return movies;
     }
 
-    public void setMovies(Set<Movie> movies) {
+    public void setMovies(List<Movie> movies) {
         this.movies = movies;
     }
 }

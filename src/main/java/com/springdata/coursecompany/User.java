@@ -26,18 +26,18 @@ public class User {
     @Column
     private String emailAddress;
     @Enumerated(EnumType.STRING)
-    @Column(name="user_role")
+    @Column(name = "user_role")
     private Role role;
 
     @ManyToOne
     @JoinColumn(name = "team_id")
     private Team team;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Session> sessions;
 
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Attendance> attendances;
 
     public User(String username, String password, String firstname, String lastname, String emailAddress, Role role) {
@@ -49,7 +49,8 @@ public class User {
         this.role = role;
     }
 
-    public User(){}
+    public User() {
+    }
 
     public Long getId() {
         return id;

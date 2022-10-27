@@ -1,10 +1,14 @@
 package com.springdata.movieapp;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
+@Table(name="Characters")
 public class Character {
     @Id
     @GeneratedValue
@@ -13,12 +17,11 @@ public class Character {
     @Column
     private String name;
 
-    @ManyToMany(mappedBy = "characters")
-    private Set<Movie> movies ;
+    @ManyToMany(mappedBy = "characters", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private List<Movie> movies ;
 
-    public Character(String name, Set<Movie> movies) {
+    public Character(String name) {
         this.name = name;
-        this.movies = movies;
     }
 
     public Character() {
@@ -36,14 +39,14 @@ public class Character {
         this.name = name;
     }
 
-    public Set<Movie> getMovies() {
+    public List<Movie> getMovies() {
         if (this.movies == null) {
-            this.movies = new HashSet<>();
+            this.movies = new ArrayList<>();
         }
         return movies;
     }
 
-    public void setMovies(Set<Movie> movies) {
+    public void setMovies(List<Movie> movies) {
         this.movies = movies;
     }
 }

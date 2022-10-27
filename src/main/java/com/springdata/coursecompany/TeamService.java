@@ -16,14 +16,20 @@ public class TeamService {
     }
 
     public Team addUserToTeam(Long userId, Long teamId) {
-        Team team = teamRepository.findById(teamId).orElseThrow(()->new IllegalArgumentException());
-        User user = userRepository.findById(userId).orElseThrow(()->new IllegalArgumentException());
+        Team team = teamRepository.findById(teamId).orElseThrow(() -> new IllegalArgumentException());
+        User user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException());
         team.getUsers().add(user);
         user.setTeam(team);
         return teamRepository.save(team);
     }
 
-    public void removeUserFromTeam(User user, Team team){
+    public Team addUserToTeam(User user, Team team) {
+        team.getUsers().add(user);
+        user.setTeam(team);
+        return teamRepository.save(team);
+    }
+
+    public void removeUserFromTeam(User user, Team team) {
         team.getUsers().remove(user);
         userRepository.delete(user);
     }
