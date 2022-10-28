@@ -49,4 +49,12 @@ public class Character {
     public void setMovies(List<Movie> movies) {
         this.movies = movies;
     }
+
+    @Override
+    public String toString() {
+        return "Character{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

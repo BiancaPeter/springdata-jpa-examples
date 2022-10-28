@@ -65,4 +65,14 @@ public class Movie {
     public void setCharacters(List<Character> characters) {
         this.characters = characters;
     }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", franchise=" + franchise +
+                ", characters=" + characters +
+                '}';
+    }
 }

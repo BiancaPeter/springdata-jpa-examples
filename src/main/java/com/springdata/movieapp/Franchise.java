@@ -45,4 +45,12 @@ public class Franchise {
     public void setMovies(List<Movie> movies) {
         this.movies = movies;
     }
+
+    @Override
+    public String toString() {
+        return "Franchise{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

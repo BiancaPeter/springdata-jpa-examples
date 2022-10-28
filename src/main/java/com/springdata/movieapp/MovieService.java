@@ -5,6 +5,8 @@ import com.springdata.twitterapp.Tweet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MovieService {
 
@@ -25,5 +27,9 @@ public class MovieService {
         character.getMovies().add(movie);
         movie.getCharacters().add(character);
         return movieRepository.save(movie);
+    }
+
+    public List<Movie>findAllByFranchise(Franchise franchise){
+        return movieRepository.findAllByFranchise(franchise);
     }
 }

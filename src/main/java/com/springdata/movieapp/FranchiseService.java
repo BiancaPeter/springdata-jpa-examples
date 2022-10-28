@@ -1,7 +1,5 @@
 package com.springdata.movieapp;
 
-import com.springdata.twitterapp.Comment;
-import com.springdata.twitterapp.Tweet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +13,10 @@ public class FranchiseService {
     public FranchiseService(@Autowired FranchiseRepository franchiseRepository,@Autowired MovieRepository movieRepository) {
         this.franchiseRepository = franchiseRepository;
         this.movieRepository = movieRepository;
+    }
+
+    public Franchise saveFranchise(Franchise franchise){
+        return franchiseRepository.save(franchise);
     }
 
     public Franchise addMovieToFranchise(Franchise franchise, Movie movie) {
