@@ -18,6 +18,6 @@ public class CharacterService {
     }
 
     public List<Character>findAllByMovie(Movie movie){
-        return characterRepository.findAllByMoviesIs(movie);
+        return characterRepository.findAllByMoviesContaining(movie);
     }
 }
