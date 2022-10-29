@@ -29,6 +29,12 @@ public class TeamService {
         return teamRepository.save(team);
     }
 
+    public Team addModuleToTeam(Module module, Team team) {
+        team.getModules().add(module);
+        module.setTeam(team);
+        return teamRepository.save(team);
+    }
+
     public void removeUserFromTeam(User user, Team team) {
         team.getUsers().remove(user);
         userRepository.delete(user);

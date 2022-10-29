@@ -90,8 +90,6 @@ public class Module {
                 ", name='" + name + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
-                ", team=" + team +
-                ", sessions=" + sessions +
                 '}';
     }
 }

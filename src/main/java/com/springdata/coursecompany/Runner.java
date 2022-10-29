@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class Runner implements CommandLineRunner {
     private LocationService locationService;
@@ -45,9 +47,8 @@ public class Runner implements CommandLineRunner {
         Team savedTeam = teamRepository.save(team);
         Team editedTeam = teamService.addUserToTeam(savedUser, savedTeam);
 
-//
-//        Module module = new Module("Java fundamentals", LocalDate.of(2022, 10, 12), LocalDate.of(2022, 10, 25), team);
-//        moduleService.saveModule(module);
+        Module module = new Module("Java fundamentals", LocalDate.of(2022, 10, 12), LocalDate.of(2022, 10, 25));
+        Team edited1Team = teamService.addModuleToTeam(module, editedTeam);
 //
 //        Location location = new Location("Biroul1", "Eroilor", 10);
 //        locationService.saveLocation(location);
@@ -58,11 +59,9 @@ public class Runner implements CommandLineRunner {
 //        Subject subject = new Subject("Variabile", session);
 //        subjectService.saveSubject(subject);
 
-
-        //adauga module la echipa
-
+        
         User user = userService.findUserById(1L);
-        userService.findUserModules(user);
+        System.out.println(userService.findUserModules(user));
 
 
     }
