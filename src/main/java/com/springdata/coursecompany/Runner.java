@@ -59,7 +59,7 @@ public class Runner implements CommandLineRunner {
 //        Subject subject = new Subject("Variabile", session);
 //        subjectService.saveSubject(subject);
 
-        
+
         User user = userService.findUserById(1L);
         System.out.println(userService.findUserModules(user));
 
